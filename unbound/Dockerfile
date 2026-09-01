@@ -1,6 +1,6 @@
 # syntax=docker/dockerfile:1
 
-FROM dhi.io/alpine-base:3.24-dev@sha256:bb33817809b675cd6da270279be956c9fc2c1471bc0b5b2a84ece82d93b6a39d AS build
+FROM dhi.io/alpine-base:3.24-dev@sha256:ad660e4218bb22f3d03dbf0c8cb483f7429bbc6ed7dead7d602b8f6cd35bbeb5 AS build
 # 3.24-dev
 
 RUN apk --no-cache add \
@@ -8,7 +8,7 @@ RUN apk --no-cache add \
     unbound \
     && test -s /usr/share/dnssec-root/trusted-key.key
 
-FROM dhi.io/alpine-base:3.24@sha256:32e94d5fda692447a1ca48ff8910e5be4657053ba74744cd6b0cf6ed816c6cbf
+FROM dhi.io/alpine-base:3.24@sha256:c83afceb9027a70719ea5ed916754a94ecdbe33a64cb8bcbb4da9fbffaefe7b0
 # 3.24
 
 COPY --from=build /usr/lib/ /usr/lib/
